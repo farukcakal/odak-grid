@@ -17,3 +17,22 @@
 .odak-grid td {
   border: 1px solid black;
 }
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 5px;
+}
+
+.pagination a {
+  cursor: pointer;
+  border: 1px solid red;
+  border-radius: 1000px;
+  padding: 10px 10px 10px 10px;
+}
+
+.pagination span {
+  padding: 5px 5px 5px 5px;
+}
