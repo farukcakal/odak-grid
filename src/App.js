@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
+import OdakGrid from './components/OdakGrid';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [gridData, setGridData] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/comments", {})
+      .then(res => {
+        //console.log(res.data)
+        setGridData(res.data)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <OdakGrid dataSource={gridData} />
     </div>
   );
 }
